@@ -10,6 +10,7 @@ from tools import TOOL_MAP
 from typing_extensions import override
 from dotenv import load_dotenv
 import streamlit_authenticator as stauth
+from streamlit_js_eval import streamlit_js_eval
 
 load_dotenv()
 
@@ -249,6 +250,10 @@ def reset_chat():
     st.session_state.chat_log = []
     st.session_state.in_progress = False
 
+def reset_screen():
+    streamlit_js_eval(js_expressions="parent.window.location.reload()")
+
+
 
 def load_chat_screen(assistant_id, assistant_title):
     if enabled_file_upload_message:
@@ -270,10 +275,12 @@ def load_chat_screen(assistant_id, assistant_title):
         )
     else:
         uploaded_file = None
-
+    st.sidebar.button("Nollaa keskustelu", on_click=reset_screen)
+    # Main screen title and header
     st.title(assistant_title if assistant_title else "")
+    st.text("Kirjoita allaolevaan laatikkoon kysymyksesi tai ohjeesi avustajalle")
     user_msg = st.chat_input(
-        "Message", on_submit=disable_form, disabled=st.session_state.in_progress
+        "Your question goes here", on_submit=disable_form, #disabled=st.session_state.in_progress
     )
     if user_msg:
         render_chat()
@@ -314,9 +321,10 @@ def main():
         assistants_json = json.loads(multi_agents)
         assistants_object = {f'{obj["title"]}': obj for obj in assistants_json}
         selected_assistant = st.sidebar.selectbox(
-            "Select an assistant profile?",
+            "Valitse avustaja alla olevasta valikosta (ensimmäinen listassa oleva valittu)",
             list(assistants_object.keys()),
-            index=None,
+            #Open 1st as default assistant
+            index=0, 
             placeholder="Select an assistant profile...",
             on_change=reset_chat,  # Call the reset function on change
         )

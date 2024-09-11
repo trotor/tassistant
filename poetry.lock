@@ -1515,6 +1515,20 @@ PyYAML = ">=5.3.1"
 streamlit = ">=1.25.0"
 
 [[package]]
+name = "streamlit-js-eval"
+version = "0.1.7"
+description = "A custom Streamlit component to evaluate arbitrary Javascript expressions."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "streamlit_js_eval-0.1.7-py3-none-any.whl", hash = "sha256:c99c23d1c6e2a27fd45794262e2ac07befaef9603a86e4e325a9e980cad8c78d"},
+    {file = "streamlit_js_eval-0.1.7.tar.gz", hash = "sha256:af80eff45e2f23a676588578aff7d2790080360528c656f4a4476c1484574c97"},
+]
+
+[package.dependencies]
+streamlit = ">=1.0.0"
+
+[[package]]
 name = "tenacity"
 version = "8.3.0"
 description = "Retry code until it succeeds"
@@ -1688,4 +1702,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10 || ^3.11"
-content-hash = "0cee35f7e56b8909a3099feea47bc86c10a5e7dbb843e1cb4d628cc52bbd1ebb"
+content-hash = "009d683c54288261cbca362ef57242f99d18216ebc3ce9df48a67e018034a2f1"

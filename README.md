@@ -1,4 +1,6 @@
-# gpt-assistants-api-ui
+
+# tassistant - a fork of fgpt-assistants-api-ui
+
 
 * 💬 OpenAI Assistants API chat UI
 * 🛠️ It works easily by setting the ASSISTANT IDs
@@ -7,6 +9,9 @@
 * 👥 Supports multiple Assistant profiles in one place
 * 🪟 Support to Azure OpenA
   * ※ Cannot be used until Azure OpenAI Service supports Streaming API
+
+## Note! All below are part of original readme and must be reviewed or altered!
+
 
 <img width="1459" alt="スクリーンショット 2023-11-20 2 23 51" src="https://github.com/ryo-ma/gpt-assistants-api-ui/assets/6661165/5c288d51-196a-4919-bc4d-dc508146f58a">
 
@@ -31,7 +36,7 @@
     ```bash
     # OpenAI settings
     OPENAI_API_KEY="sk-xxx"
-    APP_ENABLED_FILE_UPLOAD_MESSAGE="Upload a file" # Leave empty to disable
+    ENABLED_FILE_UPLOAD_MESSAGE="Upload a file" # Leave empty to disable
 
     AUTHENTICATION_REQUIRED="False" # Must change to True if you require authentication
 

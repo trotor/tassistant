@@ -7,3 +7,6 @@ __pycache__
 .python-version
 .streamlit/secrets.toml
 .devcontainer
+.venv
+.venv/*
+
