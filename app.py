@@ -20,7 +20,7 @@ def str_to_bool(str_input):
         return False
     return str_input.lower() == "true"
 
-
+# New api gpt-4o-2024-08-06 
 # Load environment variables
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 instructions = os.environ.get("RUN_INSTRUCTIONS", "")
@@ -260,16 +260,8 @@ def load_chat_screen(assistant_id, assistant_title):
         uploaded_file = st.sidebar.file_uploader(
             enabled_file_upload_message,
             type=[
-                "txt",
-                "pdf",
-                "png",
-                "jpg",
-                "jpeg",
-                "csv",
-                "json",
-                "geojson",
-                "xlsx",
-                "xls",
+                "ctext", "cpp", "cs", "css", "csv", "docx", "html", "java", "jst", "json", 
+                "md", "pdf", "php", "pptx", "py", "rb", "tex", "ts", "txt", "xlsx", "xml",
             ],
             disabled=st.session_state.in_progress,
         )
