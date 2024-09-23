@@ -11,6 +11,23 @@ from typing_extensions import override
 from dotenv import load_dotenv
 import streamlit_authenticator as stauth
 from streamlit_js_eval import streamlit_js_eval
+import pkg_resources
+import importlib.metadata
+from pathlib import Path
+import toml
+
+version = "unknown"
+# adopt path to your pyproject.toml
+pyproject_toml_file = Path(__file__).parent / "pyproject.toml"
+if pyproject_toml_file.exists() and pyproject_toml_file.is_file():
+    data = toml.load(pyproject_toml_file)
+    # check project.version
+    if "project" in data and "version" in data["project"]:
+        version = data["project"]["version"]
+    # check tool.poetry.version
+    elif "tool" in data and "poetry" in data["tool"] and "version" in data["tool"]["poetry"]:
+        version = data["tool"]["poetry"]["version"]
+
 
 load_dotenv()
 
@@ -267,10 +284,12 @@ def load_chat_screen(assistant_id, assistant_title):
         )
     else:
         uploaded_file = None
+    st.markdown(f"<div style=\"position: fixed; top: 10; left: 10;\">{my_name} {my_version}</div>", unsafe_allow_html=True)
+
     st.sidebar.button("Nollaa keskustelu", on_click=reset_screen)
     # Main screen title and header
     st.title(assistant_title if assistant_title else "")
-    st.text("Kirjoita allaolevaan laatikkoon kysymyksesi tai ohjeesi avustajalle")
+    st.text("Kirjoita allaolevaan laatikkoon kysymyksesi tai ohjeesi avustajalle") 
     user_msg = st.chat_input(
         "Your question goes here", on_submit=disable_form, #disabled=st.session_state.in_progress
     )
@@ -289,6 +308,9 @@ def load_chat_screen(assistant_id, assistant_title):
         st.rerun()
 
     render_chat()
+
+my_version = version
+my_name = "T-assistant"
 
 
 def main():
