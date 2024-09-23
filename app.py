@@ -11,8 +11,6 @@ from typing_extensions import override
 from dotenv import load_dotenv
 import streamlit_authenticator as stauth
 from streamlit_js_eval import streamlit_js_eval
-import pkg_resources
-import importlib.metadata
 from pathlib import Path
 import toml
 
