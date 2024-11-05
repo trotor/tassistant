@@ -25,13 +25,22 @@
     $ git clone https://github.com/ryo-ma/gpt-assistants-api-ui.git
     ```
 
-4. 📦 Install dependencies
+    Install python if needed. Create virtual env for python:
+
+   ```bash
+    $ python -m venv .venv
+    $ .\.venv\Scripts\activate
+    ```
+    
+
+
+5. 📦 Install dependencies
 
     ```bash
     $ poetry install
     ```
 
-5. ⚙️ Set environment variables file `.env`
+6. ⚙️ Set environment variables file `.env`
 
     ```bash
     # OpenAI settings
@@ -49,7 +58,7 @@
     ```
     If you use azure instead, set `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_KEY`
 
-6. 🔑 Set Authentication configuration (optional)
+7. 🔑 Set Authentication configuration (optional)
 
     To set up authentication, create a [secrets](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) file `.streamlit/secrets.toml`  as below:
 
