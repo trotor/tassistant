@@ -5,6 +5,7 @@ COPY pyproject.toml poetry.lock ./
 
 RUN apt update && \
     apt -y upgrade && \
+    apt update && \
     apt install -y ffmpeg && \
     pip3 install --upgrade pip && \
     pip3 install poetry && \

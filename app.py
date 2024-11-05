@@ -283,6 +283,18 @@ def load_chat_screen(assistant_id, assistant_title):
     else:
         uploaded_file = None
     st.markdown(f"<div style=\"position: fixed; top: 10; left: 10;\">{my_name} {my_version}</div>", unsafe_allow_html=True)
+    #Remove deploy button
+    st.markdown("""
+        <style>
+            .reportview-container {
+                margin-top: -2em;
+            }
+            #MainMenu {visibility: hidden;}
+            .stDeployButton {display:none;}
+            footer {visibility: hidden;}
+            #stDecoration {display:none;}
+        </style>
+    """, unsafe_allow_html=True)
 
     st.sidebar.button("Nollaa keskustelu", on_click=reset_screen)
     # Main screen title and header
@@ -312,6 +324,8 @@ my_name = "T-assistant"
 
 
 def main():
+    st.set_page_config(page_title="tAssistant", layout="wide")
+
     # Check if multi-agent settings are defined
     multi_agents = os.environ.get("OPENAI_ASSISTANTS", None)
     single_agent_id = os.environ.get("ASSISTANT_ID", None)
