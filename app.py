@@ -46,6 +46,8 @@ azure_openai_endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
 azure_openai_key = os.environ.get("AZURE_OPENAI_KEY")
 authentication_required = str_to_bool(os.environ.get("AUTHENTICATION_REQUIRED", False))
 
+st.set_page_config(page_title="tAssistant", layout="wide")
+
 # Load authentication configuration
 if authentication_required:
     if "credentials" in st.secrets:
@@ -324,8 +326,7 @@ my_name = "T-assistant"
 
 
 def main():
-    st.set_page_config(page_title="tAssistant", layout="wide")
-
+    
     # Check if multi-agent settings are defined
     multi_agents = os.environ.get("OPENAI_ASSISTANTS", None)
     single_agent_id = os.environ.get("ASSISTANT_ID", None)

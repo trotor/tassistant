@@ -9,4 +9,8 @@ __pycache__
 .devcontainer
 .venv
 .venv/*
-
+.vscode/*
+.vs/*
+.vs
+.vscode
+.vscode/settings.json
